@@ -4,12 +4,12 @@ An automated web-security mechanism built from scratch in Python to identify, lo
 
 By deploying hidden directory traps within standard HTML architectures, this lightweight engine differentiates between human traffic and automated scripts, executing instant perimeter defense actions at the network level.
 
-## ⚡ Core Operational Features
-* **Behavioral Analysis (Honey-Pot Trap):** Injects specific directory access points hidden from human interaction via hidden CSS parameters (`display:none`) but fully visible to structural web scrapers.
-* **Dynamic IP Blacklisting:** Utilizes an active `set` collection to record flagged IP coordinates, enforcing a zero-tolerance access rule upon violation.
-* **Low-Overhead Filtering:** Bypasses heavy enterprise web-application firewalls by managing security rules directly inside native network socket request pathways.
+## Core Operational Features
+* Behavioral Analysis (Honey-Pot Trap):** Injects specific directory access points hidden from human interaction via hidden CSS parameters (`display:none`) but fully visible to structural web scrapers.
+* Dynamic IP Blacklisting:** Utilizes an active `set` collection to record flagged IP coordinates, enforcing a zero-tolerance access rule upon violation.
+* Low-Overhead Filtering:** Bypasses heavy enterprise web-application firewalls by managing security rules directly inside native network socket request pathways.
 
-## 🛠️ Setup & Execution
+## Setup & Execution
 
 ### 1. Launch the Security Engine
 Run the native Python server script:
