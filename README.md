@@ -1,22 +1,15 @@
-# Automated Anti-Scraping Honey-Pot Security Engine
+# Honeypot HTTP Server Demo
 
-An automated web-security mechanism built from scratch in Python to identify, log, and dynamically block unauthorized automated data scrapers and malicious web crawlers.
+A small Python `http.server` example that serves a page on `localhost:8080` and records requests to a specific hidden path. Requests to `/hidden-admin-login-trap` add the client address to an in-memory set; subsequent requests from that address receive HTTP 403 while the process remains running.
 
-By deploying hidden directory traps within standard HTML architectures, this lightweight engine differentiates between human traffic and automated scripts, executing instant perimeter defense actions at the network level.
+## Run
 
-## Core Operational Features
-* Behavioral Analysis (Honey-Pot Trap):** Injects specific directory access points hidden from human interaction via hidden CSS parameters (`display:none`) but fully visible to structural web scrapers.
-* Dynamic IP Blacklisting:** Utilizes an active `set` collection to record flagged IP coordinates, enforcing a zero-tolerance access rule upon violation.
-* Low-Overhead Filtering:** Bypasses heavy enterprise web-application firewalls by managing security rules directly inside native network socket request pathways.
-
-## Setup & Execution
-
-### 1. Launch the Security Engine
-Run the native Python server script:
 ```bash
-python3 honeypot.py
+python honeypot.py
+```
 
-Live Verification Metrics
-Human Validation: Navigate to http://localhost:8080/ via any standard browser. The interface renders cleanly with zero security interference.
+Open `http://localhost:8080/` in a browser to view the page. The hidden link is present in the HTML, but any client can request the trap path directly.
 
-Intrusion Detection: Accessing the hidden path http://localhost:8080/hidden-admin-login-trap fires an instant alert to the server console and blocks the source device permanently with an HTTP 403 Forbidden status.
+## Scope and limitations
+
+This is a local demonstration, not an anti-scraping or production security system. A request to the trap path does not prove that the client is a bot. The block list is in memory, disappears when the process exits, and uses the address observed by the server; there is no persistence, proxy-aware identity handling, authentication, rate limiting, or robust HTTP-server configuration. The server binds to localhost by default.
